@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 @Value
@@ -20,7 +21,12 @@ public class ScreeningDto {
 
     @Override
     public String toString() {
-        return movie.getName() + " (" + movie.getTheme() + ", "
-                + movie.getLength() + " minutes), screened in room " + room.getName() + ", at " + start;
+        DecimalFormat format = new DecimalFormat("00");
+        String start = this.start.getYear() + "-" + format.format(this.start.getMonthValue())
+                + "-" + format.format(this.start.getDayOfMonth())
+                + " " + format.format(this.start.getHour())
+                + ":" + format.format(this.start.getMinute());
+        return movie.getName() + " (" + movie.getTheme() + ", " + movie.getLength()
+                + " minutes), screened in room " + room.getName() + ", at " + start;
     }
 }

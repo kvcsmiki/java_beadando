@@ -92,7 +92,7 @@ class UserCommandTest {
     void testDescribeShouldWorkAdmin(){
         UserDto userDto = new UserDto("admin", User.Role.ADMIN);
         when(userService.describe()).thenReturn(Optional.of(userDto));
-        String expected = "Signed in with privileged account: admin";
+        String expected = "Signed in with privileged account 'admin'";
 
         String actual = underTest.describe();
 

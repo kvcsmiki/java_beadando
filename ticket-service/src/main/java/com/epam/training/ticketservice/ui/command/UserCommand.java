@@ -57,7 +57,7 @@ public class UserCommand {
             return "You are not signed in";
         }
         if (user.get().getRole().equals(User.Role.ADMIN)) {
-            return "Signed in with privileged account: " + user.get().getUsername();
+            return "Signed in with privileged account '" + user.get().getUsername() + "'";
         } else {
             return "Signed in with account: " + user.get().getUsername();
         }
